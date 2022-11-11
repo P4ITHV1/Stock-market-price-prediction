@@ -1,0 +1,53 @@
+{% load static %}
+<style>
+    ul {
+       list-style-type: none;
+       margin: 0;
+       padding: 0;
+       overflow: hidden;
+       background-color: slategray; 
+    }
+
+    li {
+        float: left;
+    }
+
+    li a {
+        display: block;
+        color: snow;
+        text-align: right;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    li a:hover {
+        background-color: black;
+    }
+</style>
+
+<ul>
+    <li>
+        <img src="{%static 'img/logo.jpeg'%}" width="50" height="40">
+    </li>
+    <li>
+        <a href="{% url 'index' %}">Home</a>
+    </li>
+    <li>
+        <a href="{% url 'about' %}">About</a>
+    </li>
+    <li>
+        <a href="{% url 'contact' %}">Contact</a>
+    </li>
+    <li style="float: right;">
+        {% if user.is_authenticated %}
+            <li style="float: right; padding: 14px 16px; color: snow;">{{user.username}}</li>
+            <li>
+                <a href="{% url 'stock' %}">Stocks</a>
+            </li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+            <li><a href="{% url 'profile' %}">Profile</a></li>
+        {% else %}
+            <li><a href="{% url 'login' %}">Login</a></li>
+        {% endif %}
+    </li>
+</ul>

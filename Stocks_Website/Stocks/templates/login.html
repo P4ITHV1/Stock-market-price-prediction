@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}Stock prediction{% endblock %}</title>
+    </head>
+    <style>
+        img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+input[type=text],select
+{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=password],select
+{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit]
+{
+    width: 100%;
+    background-color: lightblue;
+    color:black;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover
+{
+    background-color: lightskyblue;
+}
+
+div
+{
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    width: 600px;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+    </style>
+
+    <body>
+        {% include 'navbar.html' %}
+        <main>
+            <img src="{%static 'img/logo.jpeg'%}" width="160" hight="110">
+            <h1 style="color: black; text-align: center;">LOGIN PAGE</h1>
+            {% block content %}
+            <div>
+                <form method="post">
+                    {% csrf_token %}
+                    <label for="username">username: </label>
+                    <input type="text" id="username" name="username">
+                    <label for="password">password: </label>
+                    <input type="password" id="password" name="password">
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+            {% endblock %}
+        </main>
+    </body>
+</html>
