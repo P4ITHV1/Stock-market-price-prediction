@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}Stock prediction{% endblock %}</title>
+    </head>
+    <body>
+        {% include 'navbar.html' %}
+        <main>
+            <h1>stocks page</h1>
+            {% block content %}
+            {% endblock %}
+        </main>
+    </body>
+</html>
